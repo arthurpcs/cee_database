@@ -180,13 +180,22 @@ REFERENCES produto (id)
 --criar tabela suporte_trilho
 CREATE TABLE suporte_trilho
 (id_produto int NOT null primary key,
-tipo VARCHAR(50)
+id_tipo INT
 )
+
+CREATE TABLE tipo_suporte_trilho
+(id INT NOT null primary key,
+tipo VARCHAR(30))
 
 --adicionar id_produto em suporte_trilho
 ALTER TABLE suporte_trilho
 ADD CONSTRAINT fk_id_produto FOREIGN KEY (id_produto)
 REFERENCES produto (id)
+
+--adicionar id_tipo em suporte_trilho
+ALTER TABLE suporte_trilho
+ADD CONSTRAINT fk_id_tipo FOREIGN KEY (id_tipo)
+REFERENCES tipo_suporte_trilho (id)
 
 --criar tabela trilho
 CREATE TABLE trilho
